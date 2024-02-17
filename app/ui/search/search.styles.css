@@ -1,0 +1,6 @@
+.region-list{
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 80px
+}
