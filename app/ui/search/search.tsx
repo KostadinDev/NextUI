@@ -15,7 +15,7 @@ import {
   useBoolean,
 } from "@chakra-ui/react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import "./search.styles.css";
 
 export default function Search({ placeholder }: { placeholder: string }) {
@@ -66,7 +66,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   }, [searchParams]);
 
   return (
-    <>
+    <Suspense fallback={<div>Loading..</div>}>
       <InputGroup>
         <InputLeftAddon border="none">
           <Popover
@@ -116,6 +116,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
           onKeyDown={handleKeyDown}
         ></Input>
       </InputGroup>
-    </>
+    </Suspense>
   );
 }
